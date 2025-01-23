@@ -3,6 +3,8 @@ package BookShopPackage;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BookController {
 	
@@ -35,6 +37,74 @@ public class BookController {
 			e.printStackTrace();
 		}
 		return isSuccesses;
+	}
+	
+	//Display data
+	//Use GetByID
+	public static List<BookModel> getById (String Id){
+		int convertedID = Integer.parseInt(Id);
+		
+		ArrayList <BookModel> book = new ArrayList<>();
+		
+		try {
+			//DBConnection
+			con=DBConnection.getConnection();
+			stmt=con.createStatement();
+			
+			//Query
+			String sql = "select * from book where id '"+convertedID+"'";
+			
+			rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				int id = rs.getInt(1);
+				String name = rs.getString(2);
+				String price = rs.getString(3);
+				String category = rs.getString(4);
+				String quentity = rs.getString(5);
+				String description = rs.getString(6);
+				
+				BookModel bk = new BookModel(id,name,price,category,quentity,description);
+				book.add(bk);
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return book;
+	}
+	
+	//GetAll Data
+	public static List<BookModel> getAllBook (){
+		ArrayList <BookModel> books = new ArrayList<>();
+		
+		try {
+			//DBConnection
+			con=DBConnection.getConnection();
+			stmt=con.createStatement();
+			
+			//Query
+			String sql = "select * from book";
+			
+			rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				int id = rs.getInt(1);
+				String name = rs.getString(2);
+				String price = rs.getString(3);
+				String category = rs.getString(4);
+				String quentity = rs.getString(5);
+				String description = rs.getString(6);
+				
+				BookModel bk = new BookModel(id,name,price,category,quentity,description);
+				books.add(bk);
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return books;
+
 	}
 
 	 
