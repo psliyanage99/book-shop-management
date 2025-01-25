@@ -15,7 +15,7 @@ public class BookController {
 	private static ResultSet rs = null;
 	
 	//Inesert Data Function
-	public static boolean insertdata(String name, String price, String category, String quentity, String description) {
+	public static boolean insertdata(String name, String price, String catagory, String quentity, String description) {
 		
 		boolean isSuccesses = false;
 		
@@ -25,7 +25,7 @@ public class BookController {
 			stmt=con.createStatement();
 			
 			//SQL QUERY
-			String sql = "insert into book values(0,'"+name+"','"+price+"','"+category+"','"+quentity+"','"+description+"')";
+			String sql = "insert into book values(0,'"+name+"','"+price+"','"+catagory+"','"+quentity+"','"+description+"')";
 			int rs = stmt.executeUpdate(sql);
 			if(rs >0) {
 				isSuccesses = true;
@@ -60,11 +60,11 @@ public class BookController {
 				int id = rs.getInt(1);
 				String name = rs.getString(2);
 				String price = rs.getString(3);
-				String category = rs.getString(4);
+				String catagory = rs.getString(4);
 				String quentity = rs.getString(5);
 				String description = rs.getString(6);
 				
-				BookModel bk = new BookModel(id,name,price,category,quentity,description);
+				BookModel bk = new BookModel(id,name,price,catagory,quentity,description);
 				book.add(bk);
 			}
 		}
@@ -92,11 +92,11 @@ public class BookController {
 				int id = rs.getInt(1);
 				String name = rs.getString(2);
 				String price = rs.getString(3);
-				String category = rs.getString(4);
+				String catagory = rs.getString(4);
 				String quentity = rs.getString(5);
 				String description = rs.getString(6);
 				
-				BookModel bk = new BookModel(id,name,price,category,quentity,description);
+				BookModel bk = new BookModel(id,name,price,catagory,quentity,description);
 				books.add(bk);
 			}
 		}
@@ -105,6 +105,31 @@ public class BookController {
 		}
 		return books;
 
+	}
+	
+	// Update data
+	public static boolean updatedata(String id, String name, String price, String catagory, String quentity, String description ) {
+		try {
+			//DBConnection
+			con=DBConnection.getConnection();
+			stmt=con.createStatement();
+			
+			//SQL Query
+			String sql = "update book set name='"+name+"',price='"+price+"',catagory='"+catagory+"',quentity='"+quentity+"',description='"+description+"'"
+					+"where id='"+id+"'";
+			int rs = stmt.executeUpdate(sql);
+			
+			if(rs >0) {
+				isSuccesses = true;
+			}
+			else {
+				isSuccesses = false;
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return isSuccesses;
 	}
 
 	 

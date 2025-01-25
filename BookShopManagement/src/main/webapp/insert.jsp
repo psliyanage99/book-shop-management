@@ -20,7 +20,7 @@
 			</tr>
 			<tr>
 				<td>Category:</td>
-				<td><input type="text" name="category" required></td>
+				<td><input type="text" name="catagory" required></td>
 			</tr>
 			<tr>
 				<td>Quantity:</td>
