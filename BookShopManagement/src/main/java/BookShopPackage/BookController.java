@@ -131,6 +131,31 @@ public class BookController {
 		}
 		return isSuccesses;
 	}
+	
+	//Delete Data
+	public static boolean deletedata(String id) {
+		int convID = Integer.parseInt(id);
+		try {
+			//DBConnection
+			con=DBConnection.getConnection();
+			stmt=con.createStatement();
+			
+			String sql = "delete from book where id='"+convID+"'";
+			
+			int rs = stmt.executeUpdate(sql);
+			if(rs > 0) {
+				isSuccesses = true;
+			}
+			else {
+				isSuccesses = false;
+			}
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return isSuccesses;
+	}
+	
 
 	 
 }
