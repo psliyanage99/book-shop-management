@@ -32,7 +32,7 @@
 			</tr>
 			<tr>
 				<td>Category:</td>
-				<td><input type="text" id="catagory" name="catagory" value="<%=catagory%>>" required></td>
+				<td><input type="text" id="catagory" name="catagory" value="<%=catagory%>" required></td>
 			</tr>
 			<tr>
 				<td>Quantity:</td>

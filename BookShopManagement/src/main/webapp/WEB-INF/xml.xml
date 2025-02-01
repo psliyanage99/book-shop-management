@@ -45,6 +45,59 @@
      	<servlet-name>DeleteServlet</servlet-name>
      	<url-pattern>/DeleteServlet </url-pattern>
      </servlet-mapping>
-
+     
+     <!-- User system -->
+     <servlet>
+     	<servlet-name>UserInsertServlet</servlet-name>
+     	<servlet-class>UserPackage.UserInsertServlet</servlet-class>
+     </servlet>
+     
+     <servlet-mapping>
+     	<servlet-name>UserInsertServlet</servlet-name>
+     	<url-pattern>/UserInsertServlet </url-pattern>
+     </servlet-mapping>
+     
+     <!-- User validation -->
+     <servlet>
+     	<servlet-name>LoginServlet</servlet-name>
+     	<servlet-class>UserPackage.LoginServlet</servlet-class>
+     </servlet>
+     
+     <servlet-mapping>
+     	<servlet-name>LoginServlet</servlet-name>
+     	<url-pattern>/LoginServlet</url-pattern>
+     </servlet-mapping>
+     
+     <!-- User Profile -->
+     <servlet>
+     	<servlet-name>profileServlet</servlet-name>
+     	<servlet-class>UserPackage.profileServlet</servlet-class>
+     </servlet>
+     
+     <servlet-mapping>
+     	<servlet-name>profileServlet</servlet-name>
+     	<url-pattern>/profileServlet</url-pattern>
+     </servlet-mapping>
+     
+     <servlet>
+     	<servlet-name>updateProfileServlet</servlet-name>
+     	<servlet-class>UserPackage.updateProfileServlet</servlet-class>
+     </servlet>
+     
+     <servlet-mapping>
+     	<servlet-name>updateProfileServlet</servlet-name>
+     	<url-pattern>/updateProfileServlet</url-pattern>
+     </servlet-mapping>
+     
+     <!-- Delete User Profile -->
+	<servlet>
+     	<servlet-name>UserDeleteServlet</servlet-name>
+     	<servlet-class>UserPackage.UserDeleteServlet</servlet-class>
+     </servlet>
+     
+     <servlet-mapping>
+     	<servlet-name>UserDeleteServlet</servlet-name>
+     	<url-pattern>/UserDeleteServlet</url-pattern>
+     </servlet-mapping>
 
 </web-app>
